@@ -1,7 +1,121 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+	Airport Announcements
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+
+    <h1>
+        <body onload="startTime()">
+
+            <div id="txt"></div>
+
+            <script>
+
+                function startTime() {
+                    const today = new Date();
+                    let h = today.getHours();
+                    let m = today.getMinutes();
+                    let s = today.getSeconds();
+                    m = checkTime(m);
+                    s = checkTime(s);
+                    document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+                    setTimeout(startTime, 1000);
+                }
+
+                function checkTime(i) {
+                    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+                    return i;
+                }
+            </script>
+
+    </h1>
+
+</body>
+
+<ul>
+  <button type="button"><a href="Home.html">Home</a></button>
+
+  <br>
+
+<br>
+<br>
+
+<script>
+    const tracks =
+[
+  
+"Sounds/Aena.wav",
+"BTM Sounds/Final call.mp3",
+"BTM Sounds/EZY.mp3",
+"BTM Sounds/Cancelled.mp3",
+
+"BTM Sounds/Blank.mp3",
+"BTM Sounds/Blank.mp3",
+"BTM Sounds/Blank.mp3",
+];
+
+let currentIndex = 0;
+let audio = new Audio();
+
+function playSequence() {
+  currentIndex = 0;
+  audio.src = tracks[currentIndex];
+  audio.play();
+}
+
+audio.addEventListener("ended", () => {
+  currentIndex++;
+  if (currentIndex < tracks.length) {
+    audio.src = tracks[currentIndex];
+    audio.play();
+  }
+});
+
+</script>
+
+<button onclick="playSequence()">Play Announcement</button>
+
+<!----Add below this line---->
+
+<br>
+<br>
+
+  <audio id="sound1" src="BTM sounds/smoking.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound1').play();">Smoking announcement</button>
+  </audio>
+
+    <audio id="sound2" src="sounds/Turboprop.wav".wav" preload="auto"></audio> 
+    <button onclick="document.getElementById('sound2').play();">Turboprop</button>
+  </audio>
+
+      <audio id="sound3" src="sounds/Medium-Heavy.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound3').play();">Medium-Heavy</button>
+  </audio>
+
+   <audio id="sound4" src="BTM Sounds/Airport Delays.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound4').play();">Delays</button>
+  </audio>
+
+   <audio id="sound5" src="BTM Sounds/Emergency.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound5').play();">Emergency</button>
+  </audio>
+
+     <audio id="sound6" src="BTM Sounds/Security.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound6').play();">Security</button>
+  </audio>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+</html>
+
+
 </body>
 </html>
