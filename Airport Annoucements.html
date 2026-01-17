@@ -34,8 +34,6 @@
 
     </h1>
 
-</body>
-
 <ul>
   <button type="button"><a href="Home.html">Home</a></button>
 
@@ -44,56 +42,145 @@
 <br>
 <br>
 
-<script>
-    const tracks =
-[
-  
-"Sounds/Aena.wav",
-"BTM Sounds/Final call.mp3",
-"BTM Sounds/EZY.mp3",
-"BTM Sounds/Cancelled.mp3",
+<!---------------------------------------------------------------------------------------------------------->
 
-"BTM Sounds/Blank.mp3",
-"BTM Sounds/Blank.mp3",
-"BTM Sounds/Blank.mp3",
-];
+<br>
 
-let currentIndex = 0;
-let audio = new Audio();
+<p>Terminal Announcement</p>
 
-function playSequence() {
-  currentIndex = 0;
-  audio.src = tracks[currentIndex];
-  audio.play();
-}
+<label>bell:</label>
+<select id="bell">
+    <option value="Sounds/Aena.wav">Aena</option>
+    <option value="Sounds/Aviavox 3 tone.mp3">Aviavox</option>
+</select>
 
-audio.addEventListener("ended", () => {
-  currentIndex++;
-  if (currentIndex < tracks.length) {
-    audio.src = tracks[currentIndex];
-    audio.play();
-  }
-});
+<br><br>
 
-</script>
+<label>Message:</label>
+<select id="message">
+    <option value="BTM Sounds/departure of flight.mp3">Departure of flight</option>
+    <option value="BTM Sounds/Final Call.mp3">Final Call</option>
+</select>
+
+<br><br>
+
+<label>Airline:</label>
+<select id="airline">
+    <option value="BTM Sounds/TOM.mp3">TOM</option>
+    <option value="BTM Sounds/TUI.mp3">TUI</option>
+    <option value="BTM Sounds/BAW.mp3">BAW</option>
+    <option value="BTM Sounds/EIN.mp3">EIN</option>
+    <option value="BTM Sounds/EZY.mp3">EZY</option>
+    <option value="BTM Sounds/EWG.mp3">EWG</option>
+    <option value="BTM Sounds/IBE.mp3">IBE</option>
+    <option value="BTM Sounds/KLM.mp3">KLM</option>
+    <option value="BTM Sounds/KLM.mp3">RYR</option>
+    <option value="BTM Sounds/KLM.mp3">SAS</option>
+    <option value="BTM Sounds/TVF.mp3">TVF</option>
+    <option value="BTM Sounds/VIR.mp3">VIR</option>
+    <option value="BTM Sounds/VLG.mp3">VLG</option>
+</select>
+
+<br><br>
+
+<label>Action:</label>
+<select id="action">
+    <option value="BTM Sounds/Please passengers proceed.mp3">Passengers proceed</option>
+    <option value="BTM Sounds/Please passengers proceed urgently.mp3">Passengers proceed urgently</option>
+    <option value="BTM Sounds/Cancelled.mp3">Cancelled</option>
+    <option value="BTM Sounds/Delayed.mp3">Delayed</option>
+</select>
+
+<br><br>
+
+<label>Departure gate:</label>
+<select id="flight1">
+    <option value="BTM Sounds/Blank.mp3">Blank</option>
+    <option value="BTM Sounds/0.mp3">0</option>
+    <option value="BTM Sounds/1.mp3">1</option>
+    <option value="BTM Sounds/2.mp3">2</option>
+    <option value="BTM Sounds/3.mp3">3</option>
+    <option value="BTM Sounds/4.mp3">4</option>
+    <option value="BTM Sounds/5.mp3">5</option>
+    <option value="BTM Sounds/6.mp3">6</option>
+    <option value="BTM Sounds/7.mp3">7</option>
+    <option value="BTM Sounds/8.mp3">8</option>
+    <option value="BTM Sounds/9.mp3">9</option>
+</select>
+
+<select id="flight2">
+    <option value="BTM Sounds/Blank.mp3">Blank</option>
+    <option value="BTM Sounds/0.mp3">0</option>
+    <option value="BTM Sounds/1.mp3">1</option>
+    <option value="BTM Sounds/2.mp3">2</option>
+    <option value="BTM Sounds/3.mp3">3</option>
+    <option value="BTM Sounds/4.mp3">4</option>
+    <option value="BTM Sounds/5.mp3">5</option>
+    <option value="BTM Sounds/6.mp3">6</option>
+    <option value="BTM Sounds/7.mp3">7</option>
+    <option value="BTM Sounds/8.mp3">8</option>
+    <option value="BTM Sounds/9.mp3">9</option>
+</select>
+
+<select id="flight3">
+    <option value="BTM Sounds/Blank.mp3">Blank</option>
+    <option value="BTM Sounds/0.mp3">0</option>
+    <option value="BTM Sounds/1.mp3">1</option>
+    <option value="BTM Sounds/2.mp3">2</option>
+    <option value="BTM Sounds/3.mp3">3</option>
+    <option value="BTM Sounds/4.mp3">4</option>
+    <option value="BTM Sounds/5.mp3">5</option>
+    <option value="BTM Sounds/6.mp3">6</option>
+    <option value="BTM Sounds/7.mp3">7</option>
+    <option value="BTM Sounds/8.mp3">8</option>
+    <option value="BTM Sounds/9.mp3">9</option>
+</select>
+
+<br><br>
 
 <button onclick="playSequence()">Play Announcement</button>
+
+<script>
+let currentIndex = 0;
+    const audio = new Audio();
+    let tracks = [];
+
+    function playSequence() {
+        tracks = [
+            document.getElementById("bell").value,
+            document.getElementById("message").value,
+            document.getElementById("airline").value,
+            document.getElementById("action").value,
+            document.getElementById("flight1").value,
+            document.getElementById("flight2").value,
+            document.getElementById("flight3").value
+        ];
+
+        currentIndex = 0;
+        audio.src = tracks[currentIndex];
+        audio.play();
+    }
+
+    audio.addEventListener("ended", () => {
+        currentIndex++;
+        if (currentIndex < tracks.length) {
+            audio.src = tracks[currentIndex];
+            audio.play();
+        }
+    });
+</script>
 
 <!----Add below this line---->
 
 <br>
 <br>
 
-  <audio id="sound1" src="BTM Sounds/smoking.mp3".mp3" preload="auto"></audio>
+<p1>Terminal Announcements</p1>
+
+<br>
+
+  <audio id="sound1" src="BTM sounds/smoking.mp3".mp3" preload="auto"></audio>
     <button onclick="document.getElementById('sound1').play();">Smoking announcement</button>
-  </audio>
-
-    <audio id="sound2" src="Sounds/Turboprop.wav".wav" preload="auto"></audio> 
-    <button onclick="document.getElementById('sound2').play();">Turboprop</button>
-  </audio>
-
-      <audio id="sound3" src="Sounds/Medium-Heavy.wav".wav" preload="auto"></audio>
-    <button onclick="document.getElementById('sound3').play();">Medium-Heavy</button>
   </audio>
 
    <audio id="sound4" src="BTM Sounds/Airport Delays.mp3".mp3" preload="auto"></audio>
@@ -108,6 +195,62 @@ audio.addEventListener("ended", () => {
     <button onclick="document.getElementById('sound6').play();">Security</button>
   </audio>
 
+  <audio id="sound7" src="Sounds/Aena.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound7').play();">Aena</button>
+  </audio>
+
+    <audio id="sound8" src="Sounds/Aviavox 3 tone.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound8').play();">Aviavox 3 tone</button>
+  </audio>
+
+      <audio id="sound9" src="Sounds/Aviavox 2 tone.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound9').play();">Aviavox 2 tone</button>
+  </audio>
+
+      <audio id="sound10" src="BTM Sounds/Myles 1.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound10').play();">Myles Airport</button>
+  </audio>
+
+    <audio id="sound11" src="BTM Sounds/Myles 2.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound11').play();">Myles Airspace</button>
+  </audio>
+
+     <audio id="sound12" src="BTM Sounds/oh no it's Dave.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound12').play();">Oh no it's Dave</button>
+  </audio>
+
+    <audio id="sound13" src="BTM Sounds/BTP61016.mp3".mp3" preload="auto"></audio>
+    <button onclick="document.getElementById('sound13').play();">BTP 61016</button>
+  </audio>
+
+   <audio id="sound14" src="Sounds/Chime 1.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound14').play();">Chime 1 2 tone</button>
+  </audio>
+
+   <audio id="sound15" src="Sounds/Chime 2.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound15').play();">Chime 2 3 tone</button>
+  </audio>
+
+     <audio id="sound16" src="Sounds/Chime 3.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound16').play();">Chime 2 tone slow</button>
+  </audio>
+
+<br>
+
+<br>
+
+<p1>Departure</p1>
+
+<br>
+
+    <audio id="sound2" src="sounds/Turboprop.wav".wav" preload="auto"></audio> 
+    <button onclick="document.getElementById('sound2').play();">Turboprop</button>
+  </audio>
+
+      <audio id="sound3" src="sounds/Medium-Heavy.wav".wav" preload="auto"></audio>
+    <button onclick="document.getElementById('sound3').play();">Medium-Heavy</button>
+  </audio>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,5 +261,5 @@ audio.addEventListener("ended", () => {
 
 
 </body>
-
 </html>
+
